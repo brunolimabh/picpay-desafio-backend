@@ -3,6 +3,7 @@ package com.example.picpaydesafiobackend.service;
 import com.example.picpaydesafiobackend.domain.transaction.Transaction;
 import com.example.picpaydesafiobackend.domain.user.User;
 import com.example.picpaydesafiobackend.dto.TransactionDto;
+import com.example.picpaydesafiobackend.dto.user.UserMapper;
 import com.example.picpaydesafiobackend.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,14 +23,15 @@ public class TransactionService {
     private final TransactionRepository repository;
     private final UserService userService;
     private final RestTemplate restTemplate;
+    private final NotificationService notificationService;
 
-    public void createTransaction(TransactionDto transaction) throws Exception {
+    public Transaction create(TransactionDto transaction) throws Exception {
         User sender = this.userService.findById(transaction.senderId());
         User receiver = this.userService.findById(transaction.receiverId());
 
         this.userService.validadeTransaction(sender, transaction.value());
 
-        boolean isAuthorized =this.authorizeTransaction(sender, transaction.value());
+        boolean isAuthorized = this.authorizeTransaction(sender, transaction.value());
         if (!isAuthorized) {
             throw new Exception("Transação não autorizada");
         }
@@ -47,8 +49,10 @@ public class TransactionService {
         this.userService.save(sender);
         this.userService.save(receiver);
 
+        this.notificationService.sendNotification(sender, "Transação realizada!");
+        this.notificationService.sendNotification(receiver, "Transação recebida!");
 
-
+        return newTransaction;
     }
 
     public boolean authorizeTransaction(User sender, BigDecimal value) {
