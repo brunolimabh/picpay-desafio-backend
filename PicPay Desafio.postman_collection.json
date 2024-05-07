@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "19b0a8f3-3813-4042-8baf-a08429a2cefa",
+		"name": "PicPay Desafio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33591770"
+	},
+	"item": [
+		{
+			"name": "Create User Common 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Bruno\",\r\n    \"lastName\": \"Henrique\",\r\n    \"document\": \"123456789\",\r\n    \"email\": \"bruno@example.com\",\r\n    \"balance\": 10,\r\n    \"userType\": \"COMMON\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{springb}}/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User Common 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Laura\",\r\n    \"lastName\": \"Galvão\",\r\n    \"document\": \"123456780\",\r\n    \"email\": \"laura@example.com\",\r\n    \"balance\": 10,\r\n    \"userType\": \"COMMON\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{springb}}/users"
+			},
+			"response": []
+		},
+		{
+			"name": "List Users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Bruno\",\r\n    \"lastName\": \"Henrique\",\r\n    \"document\": \"123456789\",\r\n    \"email\": \"bruno@example.com\",\r\n    \"type\": \"COMMON\",\r\n    \"balance\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{springb}}/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"senderId\": 1,\r\n    \"receiverId\": 2,\r\n    \"value\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{springb}}/transactions"
+			},
+			"response": []
+		}
+	]
+}
