@@ -12,7 +12,7 @@ public class ControllerExceptionHandler {
 
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity threatDuplicateEntry(DataIntegrityViolationException exception) {
-        ExceptionDto exceptionDto = new ExceptionDto("Usuário cadastrado", "400");
+        ExceptionDto exceptionDto = new ExceptionDto("Usuário cadastrado");
         return ResponseEntity.badRequest().body(exceptionDto);
     }
 
@@ -23,7 +23,7 @@ public class ControllerExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity threatGenerak(Exception exception) {
-        ExceptionDto exceptionDto = new ExceptionDto(exception.getMessage(), "500");
+        ExceptionDto exceptionDto = new ExceptionDto(exception.getMessage());
         return ResponseEntity.internalServerError().body(exceptionDto);
     }
 }

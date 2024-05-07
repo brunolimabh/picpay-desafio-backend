@@ -2,12 +2,10 @@ package com.example.picpaydesafiobackend.service;
 
 import com.example.picpaydesafiobackend.domain.transaction.Transaction;
 import com.example.picpaydesafiobackend.domain.user.User;
-import com.example.picpaydesafiobackend.dto.TransactionDto;
-import com.example.picpaydesafiobackend.dto.user.UserMapper;
+import com.example.picpaydesafiobackend.dto.transaction.TransactionDto;
 import com.example.picpaydesafiobackend.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
