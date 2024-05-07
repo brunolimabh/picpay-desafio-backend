@@ -15,6 +15,7 @@ public class UserMapper {
         entity.setDocument(dto.getDocument());
         entity.setEmail(dto.getEmail());
         entity.setPassword(dto.getPassword());
+        entity.setBalance(dto.getBalance());
         entity.setUserType(dto.getUserType());
         return entity;
     }

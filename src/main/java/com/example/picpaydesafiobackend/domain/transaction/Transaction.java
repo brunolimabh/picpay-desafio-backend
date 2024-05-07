@@ -1,6 +1,7 @@
 package com.example.picpaydesafiobackend.domain.transaction;
 
 import com.example.picpaydesafiobackend.domain.user.User;
+import com.example.picpaydesafiobackend.dto.user.UserResponseDto;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -13,7 +13,6 @@ public class UserResponseDto {
     private String lastName;
     private String document;
     private String email;
-    private String password;
     private BigDecimal balance;
     private UserType userType;
 
